@@ -1,9 +1,22 @@
-import example.pepita
+import example.*
 
-describe "group of tests for pepita" {
+describe "Test para Tom"{
 
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+  test "Luego de comer un raton de 10g, Tom tiene 42 de energia" {
+    tom.comerRaton(raton)
+    assert.equals(42, tom.energia())
   }
 
+  test "Despues de correr durante 2 segundos, tom tiene 6 de energia y corre a 5.6 metros por segundos"{
+    tom.correr(2)
+    assert.equals(6, tom.energia())
+    assert.equals(5.6, tom.velocidad())
+  }
+
+  test "A tom le conviene comerse a un raton que esta a 7 mts de distancia" {
+    assert.that(tom.meConvieneComerRaton(raton, 7))
+  }
+  test "A tom no le conviene comerse a un raton que esta a 49 mts de distancia" {
+    assert.notThat(tom.meConvieneComerRaton(raton, 49))
+  }
 }
